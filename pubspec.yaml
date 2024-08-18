@@ -16,7 +16,7 @@ dependencies:
     sdk: flutter
 
 
-  
+
   cupertino_icons: ^1.0.6
 
   # router
@@ -27,6 +27,9 @@ dependencies:
 
   # models
   json_annotation: ^4.9.0
+
+  # network
+  dio: ^5.4.2+1
 
 dev_dependencies:
   flutter_test:

@@ -23,7 +23,7 @@ extension StringColor on String {
   }
 }
 
-extension on WidgetRef {
+extension ProviderEx on StateNotifierProviderRef {
   MainConfig get mainConfig =>
       (read(ConfigNotifier.provider) as ConfigLoadedState).config.mainConfig;
 }
