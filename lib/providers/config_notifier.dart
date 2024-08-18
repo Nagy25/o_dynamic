@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:o_dynamic/data/json_loader/i_json_loader.dart';
 import 'package:o_dynamic/models/app_config.dart';
-import 'package:o_dynamic/providers/states.dart';
+import 'package:o_dynamic/providers/states/states.dart';
 
 class ConfigNotifier extends StateNotifier<ConfigState> {
   static final provider =

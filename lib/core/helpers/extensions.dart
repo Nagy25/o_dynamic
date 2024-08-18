@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:o_dynamic/models/app_config.dart';
 import 'package:o_dynamic/models/main_config.dart';
 import 'package:o_dynamic/providers/config_notifier.dart';
-import 'package:o_dynamic/providers/states.dart';
+import 'package:o_dynamic/providers/states/states.dart';
 
 extension SugarExt on BuildContext {
   //* MediaQuery

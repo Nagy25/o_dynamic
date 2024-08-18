@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:o_dynamic/core/helpers/extensions.dart';
 import 'package:o_dynamic/providers/config_notifier.dart';
-import 'package:o_dynamic/providers/states.dart';
+import 'package:o_dynamic/providers/states/states.dart';
 import 'package:o_dynamic/theme/app_theme.dart';
 import 'package:o_dynamic/ui/screens/dynamic/content_screen.dart';
 
