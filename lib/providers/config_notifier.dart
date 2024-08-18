@@ -18,9 +18,11 @@ class ConfigNotifier extends StateNotifier<ConfigState> {
     try {
       state = ConfigLoadingState();
       final data = await loader.loadJson();
+      print("dddd $data");
       final config = AppConfig.fromJson(data);
       state = ConfigLoadedState(config: config);
     } catch (e) {
+      print("e $e");
       state = ConfigErrorState(error: e.toString());
     }
   }

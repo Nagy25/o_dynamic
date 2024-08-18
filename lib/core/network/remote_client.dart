@@ -6,7 +6,11 @@ class RemoteClient implements IRemoteClient {
 
   RemoteClient() : _dio = Dio();
   @override
-  Future<dynamic> get(String url) {
-    return _dio.get(url);
+  Future<dynamic> get(String url) async {
+    final response = await _dio.get(url,
+        options: Options(headers: {
+          'Content-Type': 'application/json',
+        }));
+    return response.data;
   }
 }

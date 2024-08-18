@@ -9,6 +9,7 @@ part 'app_config.g.dart';
 class AppConfig {
   final MainConfig mainConfig;
   final AppColor appColor;
+  @JsonKey(name: 'menuItems')
   final List<MenuItem> items;
   AppConfig({
     required this.mainConfig,

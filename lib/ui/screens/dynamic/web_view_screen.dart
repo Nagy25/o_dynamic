@@ -34,6 +34,9 @@ class _WebViewContentState extends State<_WebViewContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('webView'),
+      ),
       body: WebViewWidget(controller: controller),
     );
   }

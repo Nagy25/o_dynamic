@@ -18,6 +18,7 @@ class MainScreen extends ConsumerWidget {
         builder: (_, ref, __) {
           final state = ref.watch(ConfigNotifier.provider);
           if (state is ConfigLoadedState) {
+            print("ffffff");
             return const _LoadedScreen();
           } else if (state is ConfigErrorState) {
             return const Text('error');
@@ -38,6 +39,7 @@ class _LoadedScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appConfig =
         (ref.read(ConfigNotifier.provider) as ConfigLoadedState).config;
+
     final listItems = appConfig.items;
     return AppTheme(
         appColor: appConfig.appColor,

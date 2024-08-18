@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:o_dynamic/models/menu_item.dart';
 import 'package:o_dynamic/models/post.dart';
 import 'package:o_dynamic/models/post_parameters.dart';
 import 'package:o_dynamic/providers/posts_notifier.dart';
@@ -19,8 +18,39 @@ class PostsScreen extends DaynmicScreen {
   ) {
     PostParameters postParameters =
         PostParameters.fromJson(menuItem.parameters);
-    return _PostsContent(
-      parameters: postParameters,
+    return postParameters.userId != null
+        ? _SinglePostContent(parameters: postParameters)
+        : _PostsContent(
+            parameters: postParameters,
+          );
+  }
+}
+
+class _SinglePostContent extends ConsumerWidget {
+  final PostParameters parameters;
+  const _SinglePostContent({super.key, required this.parameters});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('single post'),
+      ),
+      body: SizedBox(
+        child: ref.watch(PostsNotifier.futurePost(parameters)).when(
+            data: (data) {
+              return Center(
+                child: ListTile(
+                  title: Text(data.title),
+                  subtitle: Text(data.body),
+                ),
+              );
+            },
+            error: (e, s) => Text("error $e"),
+            loading: () => const Center(
+                  child: CircularProgressIndicator(),
+                )),
+      ),
     );
   }
 }
@@ -45,24 +75,30 @@ class _PostsContentState extends ConsumerState<_PostsContent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer(builder: (_, ref, __) {
-        final state = ref.watch(PostsNotifier.provider);
-        if (state is LoadingListState) {
-          return Center(child: CircularProgressIndicator());
-        } else if (state is ErrorListState) {
-          return Text('error');
-        } else if (state is LoadedListState) {
-          final List<Post> list = (state as LoadedListState).data as List<Post>;
-          ListView.builder(itemBuilder: (_, index) {
-            final item = list[index];
-            return ListTile(
-              title: Text(item.title),
-              subtitle: Text(item.body),
-            );
-          });
-        }
-        return SizedBox();
-      }),
+      appBar: AppBar(
+        title: const Text('List of posts'),
+      ),
+      body: SizedBox(
+        child: Consumer(builder: (_, ref, __) {
+          final state = ref.watch(PostsNotifier.provider);
+          if (state is LoadingListState) {
+            return Center(child: CircularProgressIndicator());
+          } else if (state is ErrorListState) {
+            return Text('error');
+          } else if (state is LoadedListState) {
+            final List<Post> list =
+                (state as LoadedListState).data as List<Post>;
+            ListView.builder(itemBuilder: (_, index) {
+              final item = list[index];
+              return ListTile(
+                title: Text(item.title),
+                subtitle: Text(item.body),
+              );
+            });
+          }
+          return SizedBox();
+        }),
+      ),
     );
   }
 }

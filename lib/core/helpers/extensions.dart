@@ -27,3 +27,8 @@ extension ProviderEx on StateNotifierProviderRef {
   MainConfig get mainConfig =>
       (read(ConfigNotifier.provider) as ConfigLoadedState).config.mainConfig;
 }
+
+extension ProviderFutuEx on FutureProviderRef {
+  MainConfig get mainConfig =>
+      (read(ConfigNotifier.provider) as ConfigLoadedState).config.mainConfig;
+}
