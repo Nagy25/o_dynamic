@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:o_dynamic/core/helpers/extensions.dart';
 import 'package:o_dynamic/providers/config_notifier.dart';
 import 'package:o_dynamic/providers/states.dart';
+import 'package:o_dynamic/theme/app_theme.dart';
 
 class MainScreen extends ConsumerWidget {
   const MainScreen({super.key});
@@ -36,6 +37,6 @@ class _LoadedScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appConfig =
         (ref.read(ConfigNotifier.provider) as ConfigLoadedState).config;
-    return const Scaffold();
+    return AppTheme(appColor: appConfig.appColor, child: const Scaffold());
   }
 }
