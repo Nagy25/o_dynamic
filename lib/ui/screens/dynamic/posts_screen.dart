@@ -8,22 +8,26 @@ import 'package:o_dynamic/providers/states/list.dart';
 import 'package:o_dynamic/ui/screens/dynamic/daynmic_screen.dart';
 
 class PostsScreen extends DaynmicScreen {
-  final MenuItem menuItem;
-  const PostsScreen({super.key, required this.menuItem});
+  const PostsScreen({
+    super.key,
+    required super.menuItem,
+  });
 
   @override
   Widget build(
     BuildContext context,
   ) {
+    PostParameters postParameters =
+        PostParameters.fromJson(menuItem.parameters);
     return _PostsContent(
-      item: menuItem,
+      parameters: postParameters,
     );
   }
 }
 
 class _PostsContent extends ConsumerStatefulWidget {
-  final MenuItem item;
-  const _PostsContent({super.key, required this.item});
+  final PostParameters parameters;
+  const _PostsContent({super.key, required this.parameters});
 
   @override
   ConsumerState<_PostsContent> createState() => _PostsContentState();
@@ -34,9 +38,7 @@ class _PostsContentState extends ConsumerState<_PostsContent> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final PostParameters parameters =
-          PostParameters.fromJson(widget.item.parameters);
-      ref.read(PostsNotifier.provider.notifier).fetch(parameters.apiName);
+      ref.read(PostsNotifier.provider.notifier).fetch(widget.parameters);
     });
   }
 

@@ -5,24 +5,29 @@ import 'package:o_dynamic/ui/screens/dynamic/posts_screen.dart';
 import 'package:o_dynamic/ui/screens/dynamic/web_view_screen.dart';
 
 class DaynmicScreen extends StatelessWidget {
-  const DaynmicScreen({super.key});
+  final MenuItem menuItem;
+  const DaynmicScreen({super.key, required this.menuItem});
 
   factory DaynmicScreen.fromItem(ItemComponent item, MenuItem menuItem) {
     switch (item) {
       case ItemComponent.posts:
         return PostsScreen(menuItem: menuItem);
       case ItemComponent.externalPage:
-        return const WebViewScreen();
+        return WebViewScreen(
+          menuItem: menuItem,
+        );
       case ItemComponent.unknown:
-        return const DaynmicScreen();
+        return DaynmicScreen(
+          menuItem: menuItem,
+        );
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('unknown pleas implement'),
+        child: Text('unknown pleas implement ${menuItem.component.name}'),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:o_dynamic/core/helpers/extensions.dart';
 import 'package:o_dynamic/core/network/i_remote_client.dart';
 import 'package:o_dynamic/models/main_config.dart';
 import 'package:o_dynamic/models/post.dart';
+import 'package:o_dynamic/models/post_parameters.dart';
 import 'package:o_dynamic/providers/states/list.dart';
 
 class PostsNotifier extends StateNotifier<ListState<Post>> {
@@ -17,10 +18,10 @@ class PostsNotifier extends StateNotifier<ListState<Post>> {
   final IRemoteClient remoteClient;
   final MainConfig mainConfig;
 
-  Future<void> fetch(String path) async {
+  Future<void> fetch(PostParameters postParameter) async {
     state = LoadingListState();
     try {
-      final data = await remoteClient.get("${mainConfig.baseUrl}/$path");
+      final data = await remoteClient.get(postParameter.path);
       final List<Post> list =
           (data as List).map((e) => Post.fromJson(e)).toList();
       state = LoadedListState(data: list);
@@ -28,5 +29,14 @@ class PostsNotifier extends StateNotifier<ListState<Post>> {
       print(e);
       state = ErrorListState();
     }
+  }
+}
+
+extension on PostParameters {
+  String get path {
+    if (userId != null) {
+      return "$apiName/$userId";
+    }
+    return apiName;
   }
 }

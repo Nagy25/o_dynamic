@@ -5,11 +5,11 @@ part 'post_parameters.g.dart';
 @JsonSerializable()
 class PostParameters {
   final String apiName;
-  final int userId;
+  final int? userId;
 
   PostParameters({
     required this.apiName,
-    required this.userId,
+    this.userId,
   });
 
   factory PostParameters.fromJson(Map<String, dynamic> json) =>

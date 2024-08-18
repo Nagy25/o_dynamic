@@ -320,6 +320,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "pool",
       "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/pool-1.5.1",
       "packageUri": "lib/",
@@ -470,6 +476,30 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/webview_flutter-4.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "webview_flutter_android",
+      "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/webview_flutter_android-3.16.6",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "webview_flutter_platform_interface",
+      "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "webview_flutter_wkwebview",
+      "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.14.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "yaml",
       "rootUri": "file:///home/ahmednagy/.pub-cache/hosted/pub.dev/yaml-3.1.2",
       "packageUri": "lib/",
@@ -482,7 +512,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2024-08-18T16:30:37.546751Z",
+  "generated": "2024-08-18T16:59:57.037433Z",
   "generator": "pub",
   "generatorVersion": "3.4.0",
   "flutterRoot": "file:///home/ahmednagy/fvm/versions/3.22.0",

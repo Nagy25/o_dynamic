@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:o_dynamic/core/helpers/extensions.dart';
 import 'package:o_dynamic/models/app_color.dart';
-import 'package:o_dynamic/ui/screens/dynamic/daynmic_screen.dart';
 
-class AppTheme extends DaynmicScreen {
+class AppTheme extends StatelessWidget {
   final AppColor appColor;
   final Widget child;
   const AppTheme({super.key, required this.appColor, required this.child});
