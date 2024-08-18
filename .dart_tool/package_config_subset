@@ -114,6 +114,10 @@ glob
 2.19
 file:///home/ahmednagy/.pub-cache/hosted/pub.dev/glob-2.1.2/
 file:///home/ahmednagy/.pub-cache/hosted/pub.dev/glob-2.1.2/lib/
+go_router
+3.2
+file:///home/ahmednagy/.pub-cache/hosted/pub.dev/go_router-14.2.3/
+file:///home/ahmednagy/.pub-cache/hosted/pub.dev/go_router-14.2.3/lib/
 graphs
 3.4
 file:///home/ahmednagy/.pub-cache/hosted/pub.dev/graphs-2.3.2/
@@ -288,8 +292,8 @@ file:///home/ahmednagy/.pub-cache/hosted/pub.dev/yaml-3.1.2/
 file:///home/ahmednagy/.pub-cache/hosted/pub.dev/yaml-3.1.2/lib/
 o_dynamic
 3.4
-file:///home/ahmednagy/StudioProjects/o_dynamic/
-file:///home/ahmednagy/StudioProjects/o_dynamic/lib/
+file:///home/ahmednagy/StudioProjects/o/o_dynamic/
+file:///home/ahmednagy/StudioProjects/o/o_dynamic/lib/
 sky_engine
 3.2
 file:///home/ahmednagy/fvm/versions/3.22.0/bin/cache/pkg/sky_engine/
@@ -302,4 +306,8 @@ flutter_test
 3.3
 file:///home/ahmednagy/fvm/versions/3.22.0/packages/flutter_test/
 file:///home/ahmednagy/fvm/versions/3.22.0/packages/flutter_test/lib/
+flutter_web_plugins
+3.2
+file:///home/ahmednagy/fvm/versions/3.22.0/packages/flutter_web_plugins/
+file:///home/ahmednagy/fvm/versions/3.22.0/packages/flutter_web_plugins/lib/
 2
