@@ -4,6 +4,7 @@ import 'package:o_dynamic/core/helpers/extensions.dart';
 import 'package:o_dynamic/providers/config_notifier.dart';
 import 'package:o_dynamic/providers/states.dart';
 import 'package:o_dynamic/theme/app_theme.dart';
+import 'package:o_dynamic/ui/screens/dynamic/content_screen.dart';
 
 class MainScreen extends ConsumerWidget {
   const MainScreen({super.key});
@@ -37,6 +38,25 @@ class _LoadedScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final appConfig =
         (ref.read(ConfigNotifier.provider) as ConfigLoadedState).config;
-    return AppTheme(appColor: appConfig.appColor, child: const Scaffold());
+    final listItems = appConfig.items;
+    return AppTheme(
+        appColor: appConfig.appColor,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('title'),
+          ),
+          body: ListView.builder(
+              itemCount: listItems.length,
+              itemBuilder: (_, index) {
+                final item = listItems[index];
+                return ListTile(
+                  title: Text(item.title),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => ContentScreen(menuItem: item)));
+                  },
+                );
+              }),
+        ));
   }
 }

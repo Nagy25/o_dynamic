@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:o_dynamic/models/app_config.dart';
+import 'package:o_dynamic/models/main_config.dart';
+import 'package:o_dynamic/providers/config_notifier.dart';
+import 'package:o_dynamic/providers/states.dart';
 
 extension SugarExt on BuildContext {
   //* MediaQuery
@@ -16,4 +21,9 @@ extension StringColor on String {
       throw UnimplementedError('cannot implement color convert for $this');
     }
   }
+}
+
+extension on WidgetRef {
+  MainConfig get mainConfig =>
+      (read(ConfigNotifier.provider) as ConfigLoadedState).config.mainConfig;
 }
