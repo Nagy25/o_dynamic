@@ -5,6 +5,7 @@ import 'package:o_dynamic/providers/config_notifier.dart';
 import 'package:o_dynamic/providers/states/states.dart';
 import 'package:o_dynamic/theme/app_theme.dart';
 import 'package:o_dynamic/ui/screens/dynamic/content_screen.dart';
+import 'package:o_dynamic/ui/screens/new_abroach/new_content.dart';
 
 class MainScreen extends ConsumerWidget {
   const MainScreen({super.key});
@@ -47,18 +48,42 @@ class _LoadedScreen extends ConsumerWidget {
           appBar: AppBar(
             title: const Text('title'),
           ),
-          body: ListView.builder(
-              itemCount: listItems.length,
-              itemBuilder: (_, index) {
-                final item = listItems[index];
-                return ListTile(
-                  title: Text(item.title),
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (_) => ContentScreen(menuItem: item)));
-                  },
-                );
-              }),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                ListView.builder(
+                    itemCount: listItems.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, index) {
+                      final item = listItems[index];
+                      return ListTile(
+                        title: Text(item.title),
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => ContentScreen(menuItem: item)));
+                        },
+                      );
+                    }),
+                ListView.builder(
+                    itemCount: listItems.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, index) {
+                      final item = listItems[index];
+                      return ListTile(
+                        title: Text("${item.title} ( new Way )"),
+                        onTap: () {
+                          final widget = SupportedClass().getWidget(item);
+
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (_) => widget));
+                        },
+                      );
+                    }),
+              ],
+            ),
+          ),
         ));
   }
 }
